@@ -1,0 +1,39 @@
+{
+  "name": "wedding-website",
+  "version": "1.0.0",
+  "description": "Eunice and CY's wedding website.",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cytancy/wedding-website.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Cytancy/wedding-website/issues"
+  },
+  "homepage": "https://github.com/Cytancy/wedding-website#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-flow": "^7.8.3",
+    "browser-sync": "^2.26.7",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.0",
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.0",
+    "webpack": "^4.41.5",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-stream": "^5.2.1"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "gulp-eslint": "^6.0.0"
+  }
+}
