@@ -1,3 +1,409 @@
-body {
-  background-color: "orange";
+@import "normalize.css/normalize";
+@import "_utils";
+@import "_general";
+@import "_fonts";
+
+$navHeight: 44px;
+$rsvpButtonColor: #fed540;
+$rsvpTextColor: #622b18;
+$titleColor: #0e3918;
+
+.nav {
+  position: relative;
+  padding: 40px 60px 12px 60px;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+
+  &-inner {
+    display: flex;
+    align-items: center;
+    height: $navHeight;
+    width: 100%;
+  }
+
+  &-logo {
+    height: 100%;
+    display: flex;
+    position: relative;
+    flex: 0 0 auto;
+    align-items: center;
+    position: relative;
+
+    &-icon {
+      position: relative;
+      height: 100%;
+    }
+
+    &-mark {
+      height: 36px;
+      margin-left: 16px;
+    }
+  }
+
+  &-items {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 32px;
+  }
+
+  &-item {
+    padding: 6px 12px;
+    color: #fff;
+    font-family: "proxima-nova", sans-serif;
+    font-size: 15px;
+    letter-spacing: 1.25px;
+    margin: 0 12px;
+    cursor: pointer;
+  }
+
+  &-rsvp-button {
+    @include flex-center;
+
+    color: $rsvpTextColor;
+    font-family: "proxima-nova", sans-serif;
+    font-size: 16px;
+    letter-spacing: 1.25px;
+    background-color: $rsvpButtonColor;
+    position: relative;
+    flex: 0 0 auto;
+    width: 140px;
+    height: 38px;
+    font-weight: 600;
+    border-radius: 2.5px;
+    overflow: hidden;
+    margin-left: auto;
+    cursor: pointer;
+  }
+}
+
+.title-section {
+  height: 90%;
+  position: relative;
+
+  &-fixed {
+    position: fixed;
+    width: 100%;
+    height: 90%;
+  }
+
+  &-bg {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: grey;
+    background-image: url("/dist/img/bg.jpg");
+    background-size: cover;
+    background-position: 50% 0%;
+
+    &:after {
+      content: "";
+      box-shadow: inset 0 0 240px 120px rgba(#000, 0.35);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: calc(100% + 240px);
+    }
+  }
+
+  &-content {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    font-family: "proxima-nova", sans-serif;
+    height: 100%;
+    justify-content: flex-end;
+    padding: 72px 60px;
+    position: relative;
+  }
+
+  &-date {
+    font-size: 28px;
+    letter-spacing: 4px;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  &-address {
+    font-size: 17px;
+    margin-top: 32px;
+    color: #fff;
+    line-height: 20px;
+    font-weight: 300;
+
+    &-name {
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      display: inline;
+      font-size: 18px;
+    }
+  }
+
+  &-button {
+    @include flex-center;
+
+    overflow: hidden;
+    width: 300px;
+    height: 64px;
+    overflow: hidden;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  &-rsvp-button {
+    background-color: $rsvpButtonColor;
+    color: $rsvpTextColor;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    margin-top: 36px;
+  }
+
+  &-photos-button {
+    color: #fff;
+    font-size: 21px;
+    border: 2px solid #fff;
+    letter-spacing: 1.5px;
+    margin-top: 16px;
+  }
+
+  &-credit {
+    color: #fff;
+    text-align: right;
+    font-weight: 500;
+    font-size: 14px;
+    position: absolute;
+    bottom: 70px;
+    font-family: "proxima-nova", sans-serif;
+    right: 60px;
+    text-decoration: none;
+  }
+}
+
+.story-section {
+  width: 100%;
+  box-shadow: 0 0 60px 40px rgba(#000, 0.35);
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding: 0 60px;
+
+  &-inner {
+    padding: 120px 0 112px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    max-width: 1280px;
+  }
+
+  &-bouquet {
+    position: absolute;
+    top: -192px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 300px;
+  }
+
+  &-column {
+    flex: 0 0 auto;
+    width: calc(50% - 48px);
+    position: relative;
+  }
+
+  &-right-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-photo {
+    border: 2px solid #fff;
+    box-shadow: 0 0 6px 3px rgba(#000, 0.18);
+    position: absolute;
+    height: calc(100% - 48px);
+  }
+
+  &-back-photo {
+    left: 112px;
+    bottom: 0;
+  }
+
+  &-front-photo {
+    right: 0;
+    top: 0;
+  }
+
+  &-title {
+    font-family: "lemon-yellow-sun", sans-serif;
+    font-size: 84px;
+    color: $titleColor;
+    margin-top: -12px;
+    position: relative;
+  }
+
+  &-content {
+    font-family: "proxima-nova", sans-serif;
+    font-size: 16px;
+    margin-top: 24px;
+  }
+
+  &-photo-accent {
+    position: absolute;
+
+    &-a {
+      width: 56px;
+      top: calc(75% - 44px);
+      left: 24px;
+    }
+
+    &-b {
+      top: calc(72% - 80px);
+      left: 24px;
+      width: 56px;
+    }
+
+    &-c {
+      left: calc(41.5% - 68px);
+      top: -33px;
+      height: 168px;
+    }
+
+    &-d {
+      height: 168px;
+      right: calc(4% - 68px);
+      bottom: 9px;
+    }
+  }
+
+  &-dandelion {
+    position: absolute;
+    height: 240px;
+    right: calc(12% - 33px);
+    bottom: -114px;
+  }
+}
+
+.schedule-section {
+  width: 100%;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding: 0 60px;
+
+  &-inner {
+    padding: 120px 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1280px;
+  }
+
+  &-title {
+    font-family: "lemon-yellow-sun", sans-serif;
+    font-size: 84px;
+    color: $titleColor;
+    margin-top: -12px;
+    position: relative;
+  }
+
+  &-timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    width: 100%;
+    margin-top: 36px;
+
+    &-item {
+      position: relative;
+      flex: 0 0 auto;
+      width: 212px;
+      font-family: "proxima-nova", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &-box {
+        box-shadow: 0 0 6px 2px rgba(#000, 0.12);
+        background-color: #fff;
+        width: 100%;
+        padding: 24px;
+        position: relative;
+      }
+
+      &-triangle {
+        font-family: Arial, Helvetica, sans-serif;
+        position: absolute;
+        font-size: 28px;
+        bottom: -15px;
+        line-height: 20px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        color: #fff;
+        width: 30px;
+        text-align: center;
+        text-shadow: 0 3px 4px rgba(#000, 0.15);
+        transform: scaleX(1.6);
+
+        &-cover {
+          background-color: #fff;
+          height: 12px;
+          bottom: 0;
+          width: 100%;
+          left: 0;
+          position: absolute;
+        }
+      }
+
+      &-title {
+        font-size: 21px;
+        line-height: 21px;
+      }
+
+      &-content {
+        margin-top: 10px;
+        color: #6b6b6b;
+        font-size: 14px;
+      }
+
+      &-time {
+        color: #85b87d;
+        font-family: "futura-pt", sans-serif;
+        font-size: 28px;
+        font-weight: 500;
+        margin-top: 28px;
+
+        &-postfix {
+          font-family: "lemon-yellow-sun", "futura-pt", sans-serif;
+          display: inline;
+          font-size: 18px;
+          margin-left: 4px;
+        }
+      }
+    }
+
+    &-connector {
+      position: relative;
+      flex: 1 1 auto;
+
+      &-line {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        left: -9999px;
+        right: -9999px;
+        margin: auto;
+      }
+    }
+  }
 }

@@ -10,7 +10,12 @@ const browserSync = require("browser-sync").create();
 gulp.task("sass", () =>
   gulp
     .src("./src/styles/main.scss")
-    .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
+    .pipe(
+      sass({
+        outputStyle: "compressed",
+        includePaths: ["node_modules"]
+      }).on("error", sass.logError)
+    )
     .pipe(rename({ basename: "main.min" }))
     .pipe(gulp.dest("./dist/styles"))
     .pipe(browserSync.stream())
@@ -23,11 +28,10 @@ gulp.task("sass:watch", () => {
 // webpack
 gulp.task("webpack", () =>
   gulp
-    .src("src/js/")
+    .src("./src/js/")
     // eslint-disable-next-line global-require
     .pipe(webpack(require("./webpack.config.js")))
     .pipe(gulp.dest("dist/js/"))
-    .pipe(browserSync.stream())
 );
 
 gulp.task("webpack:watch", () => {
@@ -37,14 +41,16 @@ gulp.task("webpack:watch", () => {
 // images
 gulp.task("images", () =>
   gulp
-    .src("src/images/*")
+    .src("src/img/*")
     .pipe(imagemin())
-    .pipe(gulp.dest("dist/images"))
+    .pipe(gulp.dest("dist/img"))
     .pipe(browserSync.stream())
 );
 
 gulp.task("images:watch", () => {
-  gulp.watch("./src/images/*", ["images"]);
+  gulp.watch("src/img/**", () => {
+    gulp.run("images");
+  });
 });
 
 // eslint
@@ -66,6 +72,16 @@ gulp.task("eslint:watch", () => {
   gulp.watch("./src/js/*.js", ["eslint"]);
 });
 
+// copy other files from /src to /dist
+gulp.task("copy", () =>
+  gulp.src("src/styles/fonts/*").pipe(gulp.dest("dist/styles/fonts/"))
+);
+
+gulp.task("copy:watch", () => {
+  gulp.watch("src/styles/fonts/**", () => {
+    gulp.run("copy");
+  });
+});
 // browser-sync static server
 gulp.task("browser-sync", () => {
   browserSync.init({
@@ -76,14 +92,21 @@ gulp.task("browser-sync", () => {
 
   gulp.watch("dist/js/*.js", browserSync.reload);
 
-  gulp.watch("*.html").on("change", browserSync.reload);
+  gulp.watch("*.html", browserSync.reload);
+
+  gulp.watch("dist/styles/fonts/**", browserSync.reload);
 });
 
+gulp.task("default", ["sass", "webpack", "eslint", "images", "copy"]);
+
 // default task
-gulp.task("default", [
+gulp.task("watch", [
+  "default",
+  "sass:watch",
   "sass:watch",
   "webpack:watch",
   "eslint:watch",
   "images:watch",
+  "copy:watch",
   "browser-sync"
 ]);

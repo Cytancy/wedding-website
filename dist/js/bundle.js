@@ -91,10 +91,9 @@
   !*** ./src/js/entry.js ***!
   \*************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-eval("\n\n//# sourceURL=webpack:///./src/js/entry.js?");
+eval("const steps = [];\nsteps.push(() => {});\nsteps.forEach(step => step());\n\n//# sourceURL=webpack:///./src/js/entry.js?");
 
 /***/ })
 

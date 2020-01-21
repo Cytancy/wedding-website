@@ -14,7 +14,7 @@
   },
   "rules": {
     "quotes": ["error", "double"],
-    "implicit-arrow-linebreak": ["error", "below"],
+    "implicit-arrow-linebreak": "off",
     "comma-dangle": ["error", "never"],
     "function-paren-newline": "off",
     "arrow-parens": ["error", "as-needed"]

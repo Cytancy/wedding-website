@@ -1,0 +1,53 @@
+@mixin absolute-center {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+@mixin absolute-fill {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+@mixin auto-fill {
+  left: 0;
+  max-height: 100%;
+  max-width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+@mixin text-shadow-smoothing(
+  $strokeWidth,
+  $outlineColor,
+  $shadowSize: 0px,
+  $shadowOpacity: 0
+) {
+  text-shadow: -$strokeWidth -$strokeWidth 0 $outlineColor,
+    $strokeWidth -$strokeWidth 0 $outlineColor,
+    -$strokeWidth $strokeWidth 0 $outlineColor,
+    $strokeWidth $strokeWidth 0 $outlineColor,
+    0 0 $shadowSize rgba(51, 51, 51, $shadowOpacity);
+}
+
+@mixin flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+@mixin test-every-font {
+  font-family: "azo-sans-web", sans-serif;
+  font-family: "proxima-nova", sans-serif;
+  font-family: "futura-pt", sans-serif;
+}
+
+@mixin font-smoothing {
+  @include translate3d(0, 0, 0);
+}
