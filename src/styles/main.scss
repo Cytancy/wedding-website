@@ -311,7 +311,7 @@ $titleColor: #0e3918;
     font-family: "lemon-yellow-sun", sans-serif;
     font-size: 84px;
     color: $titleColor;
-    margin-top: -12px;
+    margin-top: -8px;
     position: relative;
   }
 
@@ -381,13 +381,13 @@ $titleColor: #0e3918;
         font-family: "futura-pt", sans-serif;
         font-size: 28px;
         font-weight: 500;
-        margin-top: 28px;
+        margin-top: 32px;
+        margin-left: 4px;
 
         &-postfix {
           font-family: "lemon-yellow-sun", "futura-pt", sans-serif;
           display: inline;
           font-size: 18px;
-          margin-left: 4px;
         }
       }
     }
@@ -395,15 +395,43 @@ $titleColor: #0e3918;
     &-connector {
       position: relative;
       flex: 1 1 auto;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      margin-left: 4px;
+      justify-content: center;
+
+      &-b {
+        margin-bottom: -4px;
+      }
 
       &-line {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        left: -9999px;
-        right: -9999px;
-        margin: auto;
+        width: calc(100% + 98px);
       }
     }
   }
+
+  &-note {
+    position: relative;
+    width: 100%;
+    font-family: "proxima-nova", sans-serif;
+    text-align: center;
+    color: rgba(#000, 0.35);
+    margin-top: 72px;
+    font-size: 16px;
+  }
+}
+
+.details-section {
+  width: 100%;
+  height: 600px;
+  background-color: #205c3b;
+  position: relative;
+}
+
+.footer {
+  width: 100%;
+  height: 400px;
+  background-color: #122418;
+  position: relative;
 }
