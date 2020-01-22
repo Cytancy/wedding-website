@@ -17,6 +17,8 @@
     "implicit-arrow-linebreak": "off",
     "comma-dangle": ["error", "never"],
     "function-paren-newline": "off",
-    "arrow-parens": ["error", "as-needed"]
+    "arrow-parens": ["error", "as-needed"],
+    "operator-linebreak": "off",
+    "indent": ["error", 2]
   }
 }

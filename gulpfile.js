@@ -31,6 +31,11 @@ gulp.task("webpack", () =>
     .src("./src/js/")
     // eslint-disable-next-line global-require
     .pipe(webpack(require("./webpack.config.js")))
+    .on("error", err => {
+      console.log(err.toString());
+
+      this.emit("end");
+    })
     .pipe(gulp.dest("dist/js/"))
 );
 

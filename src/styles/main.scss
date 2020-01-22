@@ -9,11 +9,21 @@ $rsvpTextColor: #622b18;
 $titleColor: #0e3918;
 
 .nav {
-  position: relative;
-  padding: 40px 60px 12px 60px;
+  padding: 40px 60px 8px 60px;
   position: fixed;
   width: 100%;
   z-index: 100;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+
+  &-bg {
+    @include absolute-fill;
+
+    background-color: hsla(142, 40%, 3%, 1);
+    opacity: 0;
+  }
 
   &-inner {
     display: flex;
@@ -82,6 +92,8 @@ $titleColor: #0e3918;
 .title-section {
   height: 90%;
   position: relative;
+  overflow: hidden;
+  width: 100%;
 
   &-fixed {
     position: fixed;
@@ -93,13 +105,19 @@ $titleColor: #0e3918;
     overflow: hidden;
     position: absolute;
     top: 0;
-    left: 0;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
     width: 100%;
     min-height: 100%;
     background-color: grey;
     background-image: url("../img/bg.jpg");
     background-size: cover;
     background-position: 50% 0%;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
 
     &:after {
       content: "";
@@ -321,7 +339,7 @@ $titleColor: #0e3918;
     align-items: flex-end;
     position: relative;
     width: 100%;
-    margin-top: 36px;
+    margin-top: 44px;
 
     &-item {
       position: relative;
@@ -390,6 +408,46 @@ $titleColor: #0e3918;
           font-size: 18px;
         }
       }
+
+      &-accent {
+        position: absolute;
+
+        &-a {
+          bottom: -16px;
+          left: -16px;
+          height: 60px;
+        }
+
+        &-b {
+          height: 78px;
+          top: -34px;
+          right: 6px;
+
+          &-2 {
+            height: 34px;
+            bottom: 0px;
+            left: -16px;
+          }
+        }
+
+        &-c {
+          bottom: 48px;
+          height: 216px;
+          left: -30px;
+        }
+
+        &-d {
+          right: -24px;
+          bottom: -16px;
+          height: 172px;
+        }
+
+        &-e {
+          height: 72px;
+          bottom: -22px;
+          right: -18px;
+        }
+      }
     }
 
     &-connector {
@@ -424,9 +482,110 @@ $titleColor: #0e3918;
 
 .details-section {
   width: 100%;
-  height: 600px;
+  padding: 0 60px;
   background-color: #205c3b;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-inner {
+    padding: 120px 0 136px 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1280px;
+    align-items: center;
+  }
+
+  &-title {
+    font-family: "lemon-yellow-sun", sans-serif;
+    font-size: 84px;
+    color: #fff;
+    position: relative;
+
+    &-accent {
+      position: absolute;
+      width: 128px;
+      top: -72px;
+      left: -999px;
+      right: -999px;
+      margin: auto;
+    }
+  }
+
+  &-content {
+    margin-top: 36px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
+  }
+
+  &-item {
+    position: relative;
+    flex: 0 0 auto;
+    width: 100%;
+    border-bottom: 2px solid #7db89c;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 12px;
+    padding: 12px 0;
+
+    &-question {
+      position: relative;
+      font-family: "proxima-nova", sans-serif;
+      font-size: 22px;
+      color: #fff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      &-prefix {
+        display: inline-block;
+        height: 34px;
+        margin-bottom: -12px;
+        width: 34px;
+
+        img {
+          height: 38px;
+          position: absolute;
+          top: 0;
+          left: 2px;
+        }
+      }
+
+      &-expand-icon {
+        position: relative;
+        flex: 0 0 auto;
+        height: 10px;
+        margin-left: auto;
+      }
+    }
+
+    &-answer {
+      box-shadow: 0 0 6px 2px rgba(#000, 0.12);
+      background-color: #fff;
+      padding: 24px;
+      margin: 12px 0;
+      font-family: "proxima-nova", sans-serif;
+      position: relative;
+      font-size: 16px;
+      flex: 0 0 auto;
+      display: none;
+
+      &-accent {
+        position: absolute;
+        height: 72px;
+        right: -16px;
+        bottom: -24px;
+      }
+    }
+  }
 }
 
 .footer {
@@ -434,4 +593,36 @@ $titleColor: #0e3918;
   height: 400px;
   background-color: #122418;
   position: relative;
+
+  &-flowers {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -60px;
+    height: 171px;
+  }
+
+  &-text {
+    color: #fff;
+    font-family: "proxima-nova", sans-serif;
+    font-size: 16px;
+    bottom: 96px;
+    position: absolute;
+
+    &-left {
+      left: 120px;
+    }
+
+    &-right {
+      right: 120px;
+    }
+  }
+}
+
+#RSVPifyIFrame {
+  position: absolute;
+  display: fixed;
+  height: 50%;
+  top: 0;
 }
